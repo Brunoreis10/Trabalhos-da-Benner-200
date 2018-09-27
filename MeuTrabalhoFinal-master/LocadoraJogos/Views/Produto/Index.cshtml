@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<html>
+<body>  
+
+    <div>
+
+        <table id="tabela" class="table table-bordered m-b-0 dataTable">
+            <thead>
+                <tr>
+
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in ViewBag.Produtos)
+                {
+                    <tr>
+
+                        <td>@produto.Nome</td>
+                        <td id="quantidade@(produto.Id)">@produto.Quantidade</td>
+                        <td>@produto.Preco</td>
+                        <td>@produto.Descricao</td>
+                        @{
+                            string oQueGuardar = "";
+                            if (produto.Imagem != null)
+
+                            {
+                                var base64 = Convert.ToBase64String(produto.Imagem);
+                                var extensao = "png";
+
+
+                                oQueGuardar = $"data:image/{extensao};base64,{base64}";
+                            }
+
+                        }
+                        <td><img class="img-fluid" width="100" src="@oQueGuardar" /> <!-- Mostra a imagem--></td>
+
+                        <td>
+                            <a href="#" onclick="exclui(@produto.Id);">Excluir</a>
+                        </td>
+                        <td>@Html.ActionLink("Adicionar ao Carrinho", "AdicionarCarrinho", "Carrinho", new { id = produto.Id }, null)</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+        <script type="text/javascript" src="~/Content/js/jquery-1.10.2.js"></script>
+        <script type="text/javascript">
+            function exclui(produtoId){
+    var url = "@Url.Action("ExcluiQtd", "Produto")";
+    var params = {id : produtoId};
+    $.post(url, params, atualiza);
+  }
+
+  function atualiza(resposta){
+    var elemento = $("#quantidade" + resposta.Id);
+    elemento.html(resposta.Quantidade);
+  }
+        </script>
+       
+
+    </div>
+</body>
+
+
+</html>
+

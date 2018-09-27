@@ -1,0 +1,28 @@
+﻿
+
+.titulopagina {
+    width: auto;
+    height: auto;
+}
+.cabecalho {
+    color:black;
+}
+.outroCabecalho {
+    color:darkgrey;
+}
+.logo {
+    width: 200px;
+}
+#filtrar-tabela {
+    width: 200px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+.invisivel{
+    display: none;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}

@@ -1,0 +1,29 @@
+﻿@{ Layout = null; }
+@{ string login = TempData["Login"] == null ? "" : TempData["Login"].ToString(); string senha = TempData["Senha"] == null ? "" : TempData["Senha"].ToString(); }
+<DOCTYPE html>
+    <html>
+    <head>
+        <title> Mundo Dos Jogos</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="~/Content/IMG/favicon.ico">
+        <link rel="stylesheet" href="~/Content/Css/Reset.css">
+        <link rel="stylesheet" href="~/Content/Css/bootstrap.css" />
+        <link rel="stylesheet" href="~/Content/Css/Style.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700">
+    </head>
+    <body>
+        <div class="loginBox ">
+            <img src="~/Content/IMG/user.png" class="user">
+            <h2>Faça seu login aqui</h2>
+            <form action="/Login/Autentica">
+                <p>Nome</p>
+                <input type="text" name="usuario" id="usuario" placeholder="Insira seu nome" value="@login" required pattern="[a-zA-Z0-9\s]+">
+                <p>Senha</p>
+                <input type="password" name="senha" id="senha" placeholder="●●●●●●●●" value="@senha" required pattern="[a-zA-Z0-9]+" minlength="3" maxlength="10">
+                <input type="submit" name="" value="Login" required pattern="[a-zA-Z0-9]+">
+                <label class="conta">Não possui uma conta? @Html.ActionLink("Cadastre-se", "Index", "Cadastro")</label>
+            </form>
+        </div>
+    </body>
+</html>
+
