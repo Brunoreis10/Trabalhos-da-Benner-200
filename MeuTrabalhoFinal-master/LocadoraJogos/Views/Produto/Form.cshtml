@@ -1,41 +1,50 @@
-﻿
-
-@{
-    ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+﻿@{  
+    Usuario usuario;
+    if (Session["usuarioLogado"] != null && Session["usuarioLogado"] as Usuario != null && (Session["usuarioLogado"] as Usuario).Adminstrador)
+    {
+        usuario = (Usuario)Session["usuarioLogado"];
+    } else
+    {
+        throw new Exception("Sem permissao");
+    }
 }
-<!--
-<form action="/Produto/Adiciona" enctype="multipart/form-data">
-    -->
-<!-- Inclusão do jQuery-->
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<!-- Inclusão do Plugin jQuery Validation-->
-<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
-<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+    @{
+        ViewBag.Title = "Form";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    <!--
+    <form action="/Produto/Adiciona" enctype="multipart/form-data">
+        -->
+    <!-- Inclusão do jQuery-->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- Inclusão do Plugin jQuery Validation-->
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
 
-@using (Html.BeginForm("Adiciona", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Adiciona", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
-{
+    {
 
-    <label for="nome">Nome:</label>
-    <input id="nome" name="produto.Nome" required />
-    <label for="nome">Preco:</label>
-    <input id="preco" name="produto.Preco" required maxlength="500"/>
-    <label for="quantidade">Quantidade:</label>
-    <input id="quantidade" name="produto.Quantidade" required />
-    <label for="descricao">Descricao:</label>
-    <input id="descricao" name="produto.Descricao" required />
+        <label for="nome">Nome:</label>
+        <input id="nome" name="produto.Nome" required />
+        <label for="nome">Preco:</label>
+        <input id="preco" name="produto.Preco" required maxlength="500" />
+        <label for="quantidade">Quantidade:</label>
+        <input id="quantidade" name="produto.Quantidade" required />
+        <label for="descricao">Descricao:</label>
+        <input id="descricao" name="produto.Descricao" required />
 
-    <label for="descricao">Imagem:</label>
-    <input type="file" name="upload" required />
-    <br />
-    <br />
-    <br />
-    <label for="categoria">Categoria:</label>
-    <input id="categoria" name="produto.CategoriaId" />
+        <label for="descricao">Imagem:</label>
+        <input type="file" name="upload" required />
+        <br />
+        <br />
+        <br />
+        <label for="categoria">Categoria:</label>
+        <input id="categoria" name="produto.CategoriaId" />
 
-    <input type="submit" value="Cadastrar" />
-   
-    
-}
+        <input type="submit" value="Cadastrar" />
+
+
+    }

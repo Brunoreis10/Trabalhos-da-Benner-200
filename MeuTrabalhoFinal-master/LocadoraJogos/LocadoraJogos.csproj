@@ -45,6 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
@@ -2621,11 +2633,16 @@
     <Content Include="Content\fonts\themify\SVG\zoom-in.svg" />
     <Content Include="Content\fonts\themify\SVG\zoom-out.svg" />
     <Content Include="Content\fonts\themify\themify-icons.css" />
+    <Content Include="Content\images\01.png" />
     <Content Include="Content\images\01111.png" />
     <Content Include="Content\images\015.jpg" />
-    <Content Include="Content\images\07.jpg" />
-    <Content Include="Content\images\123.jpg" />
-    <Content Include="Content\images\124.jpg" />
+    <Content Include="Content\images\04.png" />
+    <Content Include="Content\images\05.png" />
+    <Content Include="Content\images\08.png" />
+    <Content Include="Content\images\09.png" />
+    <Content Include="Content\images\10.png" />
+    <Content Include="Content\images\12.png" />
+    <Content Include="Content\images\13.png" />
     <Content Include="Content\images\banner-01.jpg" />
     <Content Include="Content\images\banner-02.jpg" />
     <Content Include="Content\images\banner-03.jpg" />
@@ -2670,13 +2687,14 @@
     <Content Include="Content\images\gallery-14.jpg" />
     <Content Include="Content\images\gallery-15.jpg" />
     <Content Include="Content\images\gamesicons.jpg" />
+    <Content Include="Content\images\Gtav.png" />
     <Content Include="Content\images\heading-pages-01.jpg" />
     <Content Include="Content\images\heading-pages-02.jpg" />
     <Content Include="Content\images\heading-pages-03.jpg" />
     <Content Include="Content\images\heading-pages-04.jpg" />
     <Content Include="Content\images\heading-pages-05.jpg" />
     <Content Include="Content\images\heading-pages-06.jpg" />
-    <Content Include="Content\images\00.jpg" />
+    <Content Include="Content\images\Horizonn.png" />
     <Content Include="Content\images\icons\bg-01.jpg" />
     <Content Include="Content\images\icons\discover.png" />
     <Content Include="Content\images\icons\express.png" />
@@ -2724,6 +2742,8 @@
     <Content Include="Content\images\master-slide-06.jpg" />
     <Content Include="Content\images\master-slide-07.jpg" />
     <Content Include="Content\images\master-slide-08.jpg" />
+    <Content Include="Content\images\Minecraft.png" />
+    <Content Include="Content\images\Minecraft2.png" />
     <Content Include="Content\images\mundodosgames.png" />
     <Content Include="Content\images\product-detail-01.jpg" />
     <Content Include="Content\images\product-detail-02.jpg" />
@@ -2825,6 +2845,7 @@
     <Content Include="Content\vendor\slick\slick.min.js" />
     <Content Include="Content\vendor\sweetalert\sweetalert.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="JQuery\jquery\form.js" />
     <Content Include="JQuery\jquery\jquery-3.3.1.min.js" />
     <Content Include="JQuery\jquery\jquery.dataTables.min.js" />
     <Content Include="JQuery\jquery\jquery.js" />

@@ -14,9 +14,7 @@ namespace LocadoraJogos.Models
         public string Email { get; set; }
         public string Senha { get; set; }
         public string DataDeNascimento { get; set; }
-
         public bool Adminstrador { get; set; }
-
 
         public bool ValidaCadastro()
         {

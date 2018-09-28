@@ -1,5 +1,4 @@
-﻿@using LocadoraJogos.DAO;
-@{
+﻿@using LocadoraJogos.DAO; 
     Layout = null;
 }
 
@@ -109,10 +108,10 @@
                             <ul class="header-cart-wrapitem">
                                 <li class="header-cart-item">
                                     @{
-                                        var carrinho = Session["Carrinho"] as List<ItemPedido>;
+                                        var carrinho = (Pedido)Session["Carrinho"];
                                         if (carrinho != null)
                                         {
-                                            foreach (var item in (carrinho))
+                                            foreach (var item in carrinho.ItensPedido)
                                             {
                                                 <div class="header-cart-item-img">
                                                     <img src="~/Content/images/item-cart-01.jpg" alt="IMG">

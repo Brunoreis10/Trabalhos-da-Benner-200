@@ -12,6 +12,24 @@ namespace LocadoraJogos.Views
     public class ProdutoController : Controller
     {
         // GET: Produto
+        //public ActionResult Index()
+        //{
+        //    Usuario usuario = (Usuario)Session["Administrador"];
+        //    ProdutosDAO dao = new ProdutosDAO();
+        //    IList<Produto> produtos = dao.Lista();
+        //    ViewBag.Produtos = produtos;
+        //    if (usuario.Adminstrador == true)
+        //    {
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Index", "Home");
+        //    }
+
+
+        //}
+
         public ActionResult Index()
         {
             ProdutosDAO dao = new ProdutosDAO();
@@ -19,7 +37,7 @@ namespace LocadoraJogos.Views
             ViewBag.Produtos = produtos;
             return View();
         }
-        
+
         public ActionResult ExcluiQtd(int id)
         {
             ProdutosDAO dao = new ProdutosDAO();

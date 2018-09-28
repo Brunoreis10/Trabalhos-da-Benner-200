@@ -10,10 +10,8 @@ namespace LocadoraJogos.Controllers
     {
         // GET: Sobre
         public ActionResult Index()
-        {/*
-            var base64 = Convert.ToBase64String(ArrayArquivo);
-            var extensao = "png";
-            string oQueGuardar = $"data:image/{extensao};base64,{base64}";*/
+        {
+
             return View();
         }
     }

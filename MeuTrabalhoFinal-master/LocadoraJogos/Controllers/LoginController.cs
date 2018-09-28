@@ -31,11 +31,30 @@ namespace LocadoraJogos.Controllers
                 return RedirectToAction("Index");
             }
         }
-        [Route ("LogOut", Name ="SairConta")]
+
+        public ActionResult Autentica2(String usuario, String senha)
+        {
+            UsuarioDAO dao = new UsuarioDAO();
+            Usuario user = dao.Busca(usuario, senha);
+            if (user != null)
+            {
+                if (user.Adminstrador == true)
+                {
+                    HttpContext.Session["Administrador"] = user;
+                    return RedirectToAction("Index", "Home");
+
+                }
+            }
+
+            return RedirectToAction("Index");
+
+        }
+
+        [Route("LogOut", Name = "SairConta")]
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            Session.Abandon(); 
+            Session.Abandon();
             return RedirectToAction("Index");
         }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocadoraJogos.DAO;
+using LocadoraJogos.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,33 +14,16 @@ namespace LocadoraJogos.Controllers
         // GET: Perfil
         public ActionResult Index()
         {
+            var userId = (Int32)HttpContext.Session["usuarioLogado"]; //pega id do usuario da session
+            UsuarioDAO dao = new UsuarioDAO();
+
+            var logado = dao.BuscaPorId(userId); //logado = usuario da session
+
+            ViewBag.Usuario = logado; //Passando na viewbag o usuario da sessao atual!
+
+
             return View();
         }
 
-        [HttpGet]
-        public ActionResult UploadFile()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult UploadFile(HttpPostedFileBase file)
-        {
-            try
-            {
-                if (file.ContentLength > 0)
-                {
-                    string _FileName = Path.GetFileName(file.FileName);
-                    string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
-                    file.SaveAs(_path);
-                }
-                ViewBag.Message = "File Uploaded Successfully!!";
-                return View();
-            }
-            catch
-            {
-                ViewBag.Message = "File upload failed!!";
-                return View();
-            }
-        }
     }
 }

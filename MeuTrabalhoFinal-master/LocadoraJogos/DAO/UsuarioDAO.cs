@@ -50,7 +50,13 @@ namespace LocadoraJogos.DAO
                 return contexto.Usuarios.Find(id);
             }
         }
-
+        public Usuario BuscaPorNomePessoa(string nome)
+        {
+            using (var contexto = new LojaContext())
+            {
+                return contexto.Usuarios.FirstOrDefault(x => x.Nome == nome);
+            }
+        }
         public Usuario Busca(string login, string senha)
         {
             using (var contexto = new LojaContext())
