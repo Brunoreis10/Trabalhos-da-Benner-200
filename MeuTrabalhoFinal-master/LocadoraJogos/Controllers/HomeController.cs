@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocadoraJogos.DAO;
+using LocadoraJogos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +14,9 @@ namespace LocadoraJogos.Controllers
         // GET: Inicio
         public ActionResult Index()
         {
-
+            ProdutosDAO dao = new ProdutosDAO();
+            IList<Produto> produtos = dao.Lista();
+            ViewBag.Produtos = produtos;
             return View();
         }
     }

@@ -7,5 +7,12 @@ namespace LocadoraJogos.DAO
 {
     public class AdministradorDAO
     {
+        //public bool BuscaPeloAdm(int id)
+        //{
+        //    var BuscaPeloAdm = HttpContext.Current.Session["usuarioLogado"];
+            
+        //}
+
+            
     }
 }

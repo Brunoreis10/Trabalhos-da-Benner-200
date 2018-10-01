@@ -23,7 +23,13 @@ namespace LocadoraJogos.Controllers
             Usuario user = dao.Busca(usuario, senha);
             if (user != null)
             {
-                Session["usuarioLogado"] = user.Id;
+
+                Session["usuarioLogado"] = user.Id;               
+                    if (user.Adminstrador == true)
+                    {
+                        HttpContext.Session["Administrador"] = user;
+                        
+                    }
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -32,23 +38,6 @@ namespace LocadoraJogos.Controllers
             }
         }
 
-        public ActionResult Autentica2(String usuario, String senha)
-        {
-            UsuarioDAO dao = new UsuarioDAO();
-            Usuario user = dao.Busca(usuario, senha);
-            if (user != null)
-            {
-                if (user.Adminstrador == true)
-                {
-                    HttpContext.Session["Administrador"] = user;
-                    return RedirectToAction("Index", "Home");
-
-                }
-            }
-
-            return RedirectToAction("Index");
-
-        }
 
         [Route("LogOut", Name = "SairConta")]
         public ActionResult LogOut()
