@@ -30,6 +30,18 @@ namespace LocadoraJogos.Models
             ItensPedido.Add(new ItemPedido() { Produto = produto, Quantidade = 1 });
         }
 
+        public void RemoverProduto(int id)
+        {
+            foreach(var item in ItensPedido)
+            {
+                if (item.Produto.Id == id)
+                {
+                    ItensPedido.Remove(item);
+                    break;
+                }
+            }
+        }
+
         public void MudaQuantidade(int produtoId, int quantidade)
         {
             foreach (var item in ItensPedido)

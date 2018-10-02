@@ -1,7 +1,15 @@
-﻿@using LocadoraJogos.DAO; 
-    Layout = null;
+﻿@using LocadoraJogos.DAO;
+    @{
+        Layout = null;
 }
-
+@{
+    var carrinho = (Pedido)Session["Carrinho"];
+    var qtdTotal = 0;
+    if (carrinho != null)
+    {
+        qtdTotal = carrinho.ItensPedido.Sum(ip => ip.Quantidade);
+    }
+    }
 @{int? usuarioLogado = (Session["usuarioLogado"] as int?) ?? null;}
 
 <!DOCTYPE html>
@@ -102,27 +110,42 @@
                     <span class="linedivide1"></span>
                     <div class="header-wrapicon2">
                         <img src="~/Content/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-                        <span class="header-icons-noti">0</span>
+                        <span class="header-icons-noti">@qtdTotal</span>
                         <!-- Header cart noti -->
                         <div class="header-cart header-dropdown">
                             <ul class="header-cart-wrapitem">
                                 <li class="header-cart-item">
                                     @{
-                                        var carrinho = (Pedido)Session["Carrinho"];
+                                        //var carrinho = (Pedido)Session["Carrinho"];
                                         if (carrinho != null)
                                         {
                                             foreach (var item in carrinho.ItensPedido)
                                             {
-                                                <div class="header-cart-item-img">
-                                                    <img src="~/Content/images/item-cart-01.jpg" alt="IMG">
+                                                <div class="excluirProdutodois">
+                                                    @{
+                                                        string oQueGuardar = "";
+                                                        if (item.Produto.Imagem != null)
+
+                                                        {
+                                                            var base64 = Convert.ToBase64String(item.Produto.Imagem);
+                                                            var extensao = "png";
+
+
+                                                            oQueGuardar = $"data:image/{extensao};base64,{base64}";
+                                                        }
+
+                                                    }
+                                                    <a href="@Url.Action("ExcluiProdutoCarrinho", "Carrinho", new {id=item.Produto.Id})">
+                                                        <img class="img-fluid" width="100" src="@oQueGuardar" /> <!-- Mostra a imagem-->
+                                                    </a>
                                                 </div>
 
                                                 <div class="header-cart-item-txt">
                                                     <a href="#" class="header-cart-item-name">
-                                                        @item.Produto.Nome
+                                                        Jogo: @item.Produto.Nome
                                                     </a>
                                                     <span class="header-cart-item-info">
-                                                        @item.Produto.Preco
+                                                        R$ @item.Produto.Preco
                                                     </span>
                                                 </div>
                                             }
@@ -293,7 +316,7 @@
     </header>
     @RenderBody()
     <!-- Footer -->
-    <footer class="bg6 t-center">
+    @*<footer class="bg6 t-center">
         <div class="flex-w">
             <div class="w-size6 respon3 centered">
                 <h4 class="s-text12">
@@ -304,7 +327,7 @@
                 </p>
             </div>
         </div>
-    </footer>
+    </footer>*@
 
     <!-- Back to top -->
     <div class="btn-back-to-top bg0-hov" id="myBtn">
@@ -346,7 +369,7 @@
             });
         });
     </script>
-    
+
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/b-flash-1.5.1/datatables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {

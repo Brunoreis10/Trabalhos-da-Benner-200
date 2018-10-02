@@ -29,7 +29,7 @@ namespace LocadoraJogos.Controllers
                 TempData["Login"] = usuario.Nome;
                 TempData["Senha"] = usuario.Senha;
                 dao.Adiciona(usuario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Login");
             }
             else
             {

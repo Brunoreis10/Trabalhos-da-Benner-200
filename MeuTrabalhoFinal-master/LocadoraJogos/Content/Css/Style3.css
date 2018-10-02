@@ -29,3 +29,6 @@ footer {
     box-sizing: border-box;
     color: white;
 }
+body {
+    padding-top: 70px;
+}
