@@ -2867,6 +2867,7 @@
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
+    <Compile Include="Controllers\DescontosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MensagemErrorController.cs" />
@@ -3076,6 +3077,7 @@
     <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Carrinho\Carrinho.cshtml" />
     <Content Include="Views\MensagemError\Index.cshtml" />
+    <Content Include="Views\Descontos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
