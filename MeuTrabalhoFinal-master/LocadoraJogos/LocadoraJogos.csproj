@@ -2875,6 +2875,7 @@
     <Compile Include="Controllers\SobreController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\AdministradorDAO.cs" />
+    <Compile Include="DAO\DescontoDAO.cs" />
     <Compile Include="DAO\LojaContext.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -2916,9 +2917,14 @@
     <Compile Include="Migrations\20180926161650_Imagens.designer.cs">
       <DependentUpon>20180926161650_Imagens.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181003001740_Descontosdosite.cs" />
+    <Compile Include="Migrations\20181003001740_Descontosdosite.designer.cs">
+      <DependentUpon>20181003001740_Descontosdosite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\CategoriaDoProduto.cs" />
+    <Compile Include="Models\Desconto.cs" />
     <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="Models\Pedido.cs" />

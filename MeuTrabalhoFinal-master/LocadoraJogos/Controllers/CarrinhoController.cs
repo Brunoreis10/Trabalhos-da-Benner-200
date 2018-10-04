@@ -46,5 +46,20 @@ namespace LocadoraJogos.Controllers
             ViewBag.Produtos = produtos;
             return View(carrinho);
         }
+
+        //[Route("AplicaDesconto")]
+        public ActionResult AdicionarDesconto(string codigo)
+        {
+            DescontoDAO dao = new DescontoDAO();
+            Desconto desconto = dao.BuscaPorCodigo(codigo);
+            if (desconto == null)
+            {
+                return Json(new { sucesso = false, resposta  ="Codigo nao existe" },JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { sucesso = true, desconto =  desconto.PorcentagemDeDesconto }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace LocadoraJogos.DAO
 {
     public class LojaContext : DbContext
     {
+        public DbSet<Desconto> Descontos { get; set; }
         public DbSet<Usuario> Usuarios {get; set;}
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }

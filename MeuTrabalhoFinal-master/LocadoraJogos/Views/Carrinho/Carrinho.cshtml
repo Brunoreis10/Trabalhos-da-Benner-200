@@ -1,4 +1,8 @@
-﻿
+﻿@using System.Threading;
+@using System.Globalization;
+@{ Thread.CurrentThread.CurrentCulture = new CultureInfo("");}
+
+@using LocadoraJogos.DAO;
 @model Pedido
 
 
@@ -47,7 +51,7 @@
                                             }
 
                                         }
-                                        <a href="@Url.Action("ExcluiProdutoCarrinho", "Carrinho", new {id=item.Produto.Id})">
+                                        <a href="@Url.Action("ExcluiProdutoCarrinho", "Carrinho", new { id = item.Produto.Id })">
                                             <img class="img-fluid" width="100" src="@oQueGuardar" /> <!-- Mostra a imagem-->
                                         </a>
                                     </div>
@@ -67,7 +71,7 @@
                                 </td>
                                 <td class="subtotalProduto column-5">@(item.Quantidade * item.Produto.Preco)</td>
                             </tr>
-                        }
+                                            }
                     </tbody>
                 </table>
             </div>
@@ -104,7 +108,24 @@
                         });
                     });
                 </script>
-
+                @{ 
+                    var usuarioLogado = Session["usuarioLogado"] as int?;
+                    var listaDeItens = "";
+                    if (usuarioLogado.HasValue) {
+                        var dao = new UsuarioDAO();
+                        var usuario = dao.BuscaPorId(usuarioLogado.Value);
+                        listaDeItens = $"{string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())}, {usuario.Nome}";
+                    } else
+                    {
+                        var adminLogado = Session["Administrador"] as Usuario;
+                        if (adminLogado != null) {
+                            listaDeItens = $"{string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())}, {adminLogado.Nome}";
+                        } else
+                        {
+                            listaDeItens = $"{string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())}";
+                        }
+                    }
+                }
                 <form id="wps-bn" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <!--Tipo do botão-->
                     <input type="hidden" name="cmd" value="_xclick" />
@@ -119,8 +140,8 @@
                     <input type="hidden" name="country_code" value="BR" />
                     <input type="hidden" name="currency_code" value="BRL" />
                     <!--Informações sobre o produto e seu valor-->
-                    <input type="hidden" name="amount" value="@total.Replace(',','.')" />
-                    <input type="hidden" name="item_name" value="@string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())" />
+                    <input type="hidden" name="amount" value="@total.Replace(',', '.')" />
+                    <input type="hidden" name="item_name" value="@listaDeItens" />
                     <input type="hidden" name="undefined_quantity" value="@qtdTotal" />
                     <!--Botão para submissão do formulário-->
                     <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="0" />
@@ -132,27 +153,87 @@
     <div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
         <div class="flex-w flex-m w-full-sm">
             <div class="size11 bo4 m-r-10">
-                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Código do desconto">
+                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" id="codDesconto" placeholder="Código do desconto">
             </div>
             <div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
                 <!-- Button -->
-                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="AdicionarDesconto()">
                     Aplicar desconto
                 </button>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
-    <script type="text/javascript">
-    function atualiza(itemquantidade){
-        var url = "@Url.Action("Atualiza", "Produto")";
-        var params = { id: produtoId };
-        $.post(url, params, atualiza);
-   }
+    <script src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
 
-    function atualiza(resposta) {
-        var elemento = $("#quantidade" + resposta.Id);
-        elemento.html(resposta.Quantidade);
-    }
+    <script>
+
+        function AdicionarDesconto() {
+            var codigo = $("#codDesconto").val();
+            var total = @total;
+            $.ajax({
+                type: 'POST',
+                url: 'AdicionarDesconto',
+                data: {
+                    codigo
+                },
+                success: function (data) {
+                    if (data.sucesso == true) {
+                        $(".totalCarrinhoCompra").text(@total  * 0.20);
+
+                        var DESCONTO10 = @total  * 0.10;
+                        var DESCONTO20 = @total  * 0.20;
+                        var DESCONTO30 = @total  * 0.30;
+                        var DESCONTO40 = @total  * 0.40;
+                        var DESCONTO50 = @total  * 0.50;
+                        var DESCONTO60 = @total  * 0.60;
+                        var DESCONTO70 = @total  * 0.70;
+                        var DESCONTO80 = @total  * 0.80;
+                        var DESCONTO90 = @total  * 0.90;
+                            
+
+                    } else {
+                        alert(data.resposta);
+                    }
+
+                }
+
+            })
+        }
+
     </script>
+    <script src="~/JQuery/jquery/jquery-3.3.1.min.js"></script>
+    <script>
+
+        function recarregaItensCarrinho() {
+            var itens = $("#codItens").val();
+            var todosItens = @qtdTotal;
+            $.ajax({
+                type: 'POST',
+                url: 'RecarregaItens',
+                data: {
+                    itens
+                },
+                success: function (data) {
+                    if (data.sucesso == true) {
+                        $(".qtdProduto").text(@qtdTotal);
+
+                        
+
+
+
+
+                    } else {
+
+                    }
+
+                }
+                
+                    
+
+            })
+
+        }
+
+    </script>
+
 </section>
