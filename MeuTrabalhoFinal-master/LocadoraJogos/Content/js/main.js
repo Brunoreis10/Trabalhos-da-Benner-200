@@ -205,9 +205,11 @@
         for (var i = 0; i < precos.length; i++) {
             total += parseFloat(precos[i].textContent.replace(",", "."));
         }
-        var result = total.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+        //var result = total.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+        var result = total.toFixed(2).replace(',', '.');
 
         $(".totalCarrinho").text(result);
+        $("#paypal-amount").val(result);
     }
 
 

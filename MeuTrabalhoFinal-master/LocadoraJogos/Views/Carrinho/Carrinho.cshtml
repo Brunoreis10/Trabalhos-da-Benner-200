@@ -86,7 +86,9 @@
                         var total = Model.ItensPedido.Sum(ip => ip.Quantidade * ip.Produto.Preco).ToString();
                         var qtdTotal = Model.ItensPedido.Sum(ip => ip.Quantidade);
                     }
+                    @*
                     R$ @total
+                        *@
                 </span>
             </h5>
             <!--  -->
@@ -94,7 +96,10 @@
                 <!-- Button -->
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
                 <script type="text/javascript">
+                    var total = @total.Replace(',','.');
+                    $("#totalCarrinhoCompra").text(total);
                     jQuery(document).ready(function () {
+                        $("#paypal-amount").val(total);
                         //Pegamos o formulário do botão
                         var wpsBn = jQuery('#wps-bn');
                         //Interceptamos o clique no botão
@@ -140,7 +145,8 @@
                     <input type="hidden" name="country_code" value="BR" />
                     <input type="hidden" name="currency_code" value="BRL" />
                     <!--Informações sobre o produto e seu valor-->
-                    <input type="hidden" name="amount" value="@total.Replace(',', '.')" />
+                    @*<input type="hidden" name="amount" value="@total.Replace(',', '.')" />*@
+                    <input type="hidden" id="paypal-amount" name="amount" value="" />
                     <input type="hidden" name="item_name" value="@listaDeItens" />
                     <input type="hidden" name="undefined_quantity" value="@qtdTotal" />
                     <!--Botão para submissão do formulário-->
@@ -169,7 +175,6 @@
 
         function AdicionarDesconto() {
             var codigo = $("#codDesconto").val();
-            var total = @total;
             $.ajax({
                 type: 'POST',
                 url: 'AdicionarDesconto',
@@ -178,17 +183,13 @@
                 },
                 success: function (data) {
                     if (data.sucesso == true) {
-                        $(".totalCarrinhoCompra").text(@total  * 0.20);
+                        //$("#totalCarrinhoCompra").text(total * (data.desconto / 100));
+                        var valorAtual = $("#totalCarrinhoCompra").text();
+                        var desconto =  (valorAtual * (data.desconto / 100));
+                        $("#totalCarrinhoCompra").text(desconto.toFixed(2));
+                        $("#paypal-amount").val(desconto.toFixed(2));
 
-                        var DESCONTO10 = @total  * 0.10;
-                        var DESCONTO20 = @total  * 0.20;
-                        var DESCONTO30 = @total  * 0.30;
-                        var DESCONTO40 = @total  * 0.40;
-                        var DESCONTO50 = @total  * 0.50;
-                        var DESCONTO60 = @total  * 0.60;
-                        var DESCONTO70 = @total  * 0.70;
-                        var DESCONTO80 = @total  * 0.80;
-                        var DESCONTO90 = @total  * 0.90;
+                        
                             
 
                     } else {
@@ -199,12 +200,12 @@
 
             })
         }
-
+        
     </script>
-    <script src="~/JQuery/jquery/jquery-3.3.1.min.js"></script>
+    @*<script src="~/JQuery/jquery/jquery-3.3.1.min.js"></script>
     <script>
 
-        function recarregaItensCarrinho() {
+        function RecarregaItensCarrinho() {
             var itens = $("#codItens").val();
             var todosItens = @qtdTotal;
             $.ajax({
@@ -223,7 +224,7 @@
 
 
                     } else {
-
+                        alert(data.resposta);
                     }
 
                 }
@@ -234,6 +235,6 @@
 
         }
 
-    </script>
+    </script>*@
 
 </section>

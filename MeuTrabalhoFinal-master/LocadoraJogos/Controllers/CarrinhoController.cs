@@ -61,5 +61,22 @@ namespace LocadoraJogos.Controllers
                 return Json(new { sucesso = true, desconto =  desconto.PorcentagemDeDesconto }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        //public ActionResult RecarregaItensCarrinho(int quantidade)
+        //{
+        //    ProdutosDAO dao = new ProdutosDAO();
+        //    Produto produto = dao.BuscaPorId(quantidade);
+        //    if (produto != null)
+        //    {
+        //        return Json(new { sucesso = false, resposta = "Nao tem o que atualizar" }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    else
+        //    {
+        //        return Json(new {  sucesso = true, quantidade = produto.Quantidade }, JsonRequestBehavior.AllowGet);
+        //    }
+  
+            
+        //}
+
     }
 }
