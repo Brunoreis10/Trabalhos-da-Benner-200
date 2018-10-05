@@ -163,7 +163,7 @@
             </div>
             <div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
                 <!-- Button -->
-                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="AdicionarDesconto()">
+                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btnDesconto" onclick="AdicionarDesconto()">
                     Aplicar desconto
                 </button>
             </div>
@@ -175,6 +175,7 @@
 
         function AdicionarDesconto() {
             var codigo = $("#codDesconto").val();
+            
             $.ajax({
                 type: 'POST',
                 url: 'AdicionarDesconto',
@@ -182,6 +183,7 @@
                     codigo
                 },
                 success: function (data) {
+                    $(".btnDesconto").attr("disabled", true);
                     if (data.sucesso == true) {
                         //$("#totalCarrinhoCompra").text(total * (data.desconto / 100));
                         var valorAtual = $("#totalCarrinhoCompra").text();
@@ -202,8 +204,8 @@
         }
         
     </script>
-    @*<script src="~/JQuery/jquery/jquery-3.3.1.min.js"></script>
-    <script>
+    <script src="~/JQuery/jquery/jquery-3.3.1.min.js"></script>
+    @*<script>
 
         function RecarregaItensCarrinho() {
             var itens = $("#codItens").val();
@@ -217,6 +219,8 @@
                 success: function (data) {
                     if (data.sucesso == true) {
                         $(".qtdProduto").text(@qtdTotal);
+
+                        
 
                         
 
