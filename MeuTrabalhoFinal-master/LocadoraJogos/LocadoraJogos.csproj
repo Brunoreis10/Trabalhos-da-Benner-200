@@ -2759,7 +2759,16 @@
     <Content Include="Content\vendor\slick\slick.js" />
     <Content Include="Content\vendor\slick\slick.min.js" />
     <Content Include="Content\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="Formulario\css\main.css" />
+    <Content Include="Formulario\css\util.css" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Formulario\fonts\montserrat\OFL.txt" />
     <Content Include="Global.asax" />
+    <Content Include="Formulario\images\icons\favicon.ico" />
+    <Content Include="Formulario\images\img-01.png" />
     <Content Include="JQuery\jquery\form.js" />
     <Content Include="JQuery\jquery\jquery-3.3.1.min.js" />
     <Content Include="JQuery\jquery\jquery.dataTables.min.js" />
@@ -2767,12 +2776,84 @@
     <Content Include="JQuery\jquery\jquery.min.js" />
     <Content Include="JQuery\jquery\jquery.slim.js" />
     <Content Include="JQuery\jquery\jquery.slim.min.js" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Formulario\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Formulario\fonts\montserrat\Montserrat-ThinItalic.ttf" />
     <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Formulario\js\main.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Formulario\vendor\animate\animate.css" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Formulario\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Formulario\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Formulario\vendor\bootstrap\js\popper.js" />
+    <Content Include="Formulario\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Formulario\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Formulario\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Formulario\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Formulario\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Formulario\vendor\select2\select2.css" />
+    <Content Include="Formulario\vendor\select2\select2.js" />
+    <Content Include="Formulario\vendor\select2\select2.min.css" />
+    <Content Include="Formulario\vendor\select2\select2.min.js" />
+    <Content Include="Formulario\vendor\tilt\tilt.jquery.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2999,6 +3080,12 @@
     <Content Include="Views\Carrinho\Carrinho.cshtml" />
     <Content Include="Views\MensagemError\Index.cshtml" />
     <Content Include="Views\Descontos\Index.cshtml" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Formulario\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3008,9 +3095,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagens\" />
-    <Folder Include="Views\Administration\" />
-    <Folder Include="Views\Authorization\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

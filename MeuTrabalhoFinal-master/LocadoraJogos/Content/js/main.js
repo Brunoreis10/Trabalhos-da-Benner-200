@@ -174,6 +174,12 @@
 
         precofinal.text((quantidade * precoProduto).toFixed(2).replace(".", ","));
 
+        var idProduto = $(this).parent().parent().parent().find(".idProduto").text();
+        var url = "/Carrinho/TirarCarrinho";
+        var params = { id: idProduto };
+        $.ajax(url, { data: params, method: "POST" }).done(function (data) {
+            
+        })
 
         atualizaTotal();
 
@@ -194,6 +200,15 @@
         var precofinal = $(this).parent().parent().parent().find(".subtotalProduto");
 
         precofinal.text((quantidade * precoProduto).toFixed(2).replace(".", ","));
+
+
+        var idProduto = $(this).parent().parent().parent().find(".idProduto").text();
+        var url = "/Carrinho/AdicionarCarrinho";
+        var params = { id: idProduto };
+        $.ajax(url, { data: params, method: "POST" }).done(function (data) {
+            
+        })
+
 
         atualizaTotal();
 

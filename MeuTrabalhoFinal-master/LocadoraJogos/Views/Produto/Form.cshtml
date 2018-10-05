@@ -28,33 +28,36 @@
 
 {
 <fieldset>
-    <fieldset class="grupo">
+    <form>
+    <fieldset class="grupo form-group">
         <div class="campo">
             <label for="nome">Nome:</label>
             <input id="nome" name="produto.Nome" required />
-        </div>
-        <div class="campo">
+        </div> 
+        <div class="campo form-group">
             <label for="nome">Preco:</label>
             <input id="preco" name="produto.Preco" required maxlength="500" />
         </div>
     </fieldset>
+        <div class="form-group">
     <label for="quantidade">Quantidade:</label>
     <input id="quantidade" name="produto.Quantidade" required />
-    <div class="campo">
+            </div>
+    <div class="campo form-group">
         <label for="descricao">Descricao:</label>
         <input id="descricao" name="produto.Descricao" required />
     </div>
-    <div class="campo">
+    <div class="campo form-group">
 
         <label for="descricao">Imagem:</label>
         <input type="file" name="upload" required />
     </div>
-    <div class="campo">
+    <div class="campo form-group">
         <label for="categoria">Categoria:</label>
         <input id="categoria" name="produto.CategoriaId" />
     </div>
 
     <input type="submit" value="Cadastrar" />
-
+        </form>
 </fieldset>
         }
