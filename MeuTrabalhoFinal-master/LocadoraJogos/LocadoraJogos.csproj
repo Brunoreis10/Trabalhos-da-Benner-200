@@ -200,6 +200,7 @@
     <Content Include="Content\Css\Reset.css" />
     <Content Include="Content\Css\Style.css" />
     <Content Include="Content\Css\Style3.css" />
+    <Content Include="Content\Css\Style4.css" />
     <Content Include="Content\Css\util.css" />
     <Content Include="Content\Css\util.min.css" />
     <Content Include="Content\fonts\elegant-font\html-css\fonts\ElegantIcons.svg" />
@@ -2657,9 +2658,11 @@
     <Content Include="Content\images\Jogosfundo.jpg" />
     <Content Include="Content\images\legoharrypotter.png" />
     <Content Include="Content\images\legohobbit.png" />
+    <Content Include="Content\images\luigifundo.png" />
     <Content Include="Content\images\mario2.png" />
     <Content Include="Content\images\mario33.png" />
     <Content Include="Content\images\mariofundo.jpg" />
+    <Content Include="Content\images\mariogalaxy.png" />
     <Content Include="Content\images\metalgearsolidv.png" />
     <Content Include="Content\images\Minecraft.png" />
     <Content Include="Content\images\Minecraft2.png" />
@@ -2668,6 +2671,7 @@
     <Content Include="Content\images\sniperelitequatro.png" />
     <Content Include="Content\images\tombraider.png" />
     <Content Include="Content\images\unchartedquatro.png" />
+    <Content Include="Content\images\wallpapermario.png" />
     <Content Include="Content\IMG\01.jpg" />
     <Content Include="Content\IMG\02.png" />
     <Content Include="Content\IMG\03.jpg" />

@@ -22,42 +22,54 @@
 <!-- Inclusão do Plugin jQuery Validation-->
 <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
 <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+<link href="~/Content/Css/Style4.css" rel="stylesheet" />
+
 
 
 @using (Html.BeginForm("Adiciona", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
-<fieldset>
-    <form>
-    <fieldset class="grupo form-group">
-        <div class="campo">
-            <label for="nome">Nome:</label>
-            <input id="nome" name="produto.Nome" required />
-        </div> 
-        <div class="campo form-group">
-            <label for="nome">Preco:</label>
-            <input id="preco" name="produto.Preco" required maxlength="500" />
-        </div>
-    </fieldset>
-        <div class="form-group">
-    <label for="quantidade">Quantidade:</label>
-    <input id="quantidade" name="produto.Quantidade" required />
+
+    <div class="container">
+        <div class="card mx-auto mt-5">
+            <div class="card-header">Adicionar produto</div>
+            <div class="card-body">
+                <fieldset>
+                    <form>
+                        <div class="form-control">
+                        <fieldset class="grupo">
+                            <div class="campo form-group">
+                                    <label for="nome">Nome:</label>
+                                    <input id="nome" name="produto.Nome" required />
+                            </div>
+                            <div class="campo form-group">
+                                <label for="nome">Preco:</label>
+                                <input id="preco" name="produto.Preco" required maxlength="500" />
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade:</label>
+                            <input id="quantidade" name="produto.Quantidade" required />
+                        </div>
+                        <div class="campo form-group">
+                            <label for="descricao">Descricao:</label>
+                            <input id="descricao" name="produto.Descricao" required />
+                        </div>
+                        <div class="campo form-group">
+
+                            <label for="descricao">Imagem:</label>
+                            <input type="file" name="upload" required />
+                        </div>
+                        <div class="campo form-group">
+                            <label for="categoria">Categoria:</label>
+                            <input id="categoria" name="produto.CategoriaId" />
+                        </div>
+
+                        <input type="submit" value="Cadastrar" />
+                           </div>
+                    </form>
+                </fieldset>
             </div>
-    <div class="campo form-group">
-        <label for="descricao">Descricao:</label>
-        <input id="descricao" name="produto.Descricao" required />
+        </div>
     </div>
-    <div class="campo form-group">
-
-        <label for="descricao">Imagem:</label>
-        <input type="file" name="upload" required />
-    </div>
-    <div class="campo form-group">
-        <label for="categoria">Categoria:</label>
-        <input id="categoria" name="produto.CategoriaId" />
-    </div>
-
-    <input type="submit" value="Cadastrar" />
-        </form>
-</fieldset>
-        }
+}
