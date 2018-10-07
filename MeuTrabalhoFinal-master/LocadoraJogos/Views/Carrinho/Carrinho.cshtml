@@ -146,10 +146,8 @@
                     <input type="hidden" name="country_code" value="BR" />
                     <input type="hidden" name="currency_code" value="BRL" />
                     <!--Informações sobre o produto e seu valor-->
-                    @*<input type="hidden" name="amount" value="@total.Replace(',', '.')" />*@
                     <input type="hidden" id="paypal-amount" name="amount" value="" />
                     <input type="hidden" name="item_name" value="@listaDeItens" />
-                    @*<input type="hidden" name="undefined_quantity" value="@qtdTotal" />*@
                     <!--Botão para submissão do formulário-->
                     <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="0" />
                 </form>
@@ -205,41 +203,4 @@
         }
         
     </script>
-    <script src="~/JQuery/jquery/jquery-3.3.1.min.js"></script>
-    @*<script>
-
-        function RecarregaItensCarrinho() {
-            var itens = $("#codItens").val();
-            var todosItens = @qtdTotal;
-            $.ajax({
-                type: 'POST',
-                url: 'RecarregaItens',
-                data: {
-                    itens
-                },
-                success: function (data) {
-                    if (data.sucesso == true) {
-                        $(".qtdProduto").text(@qtdTotal);
-
-                        
-
-                        
-
-
-
-
-                    } else {
-                        alert(data.resposta);
-                    }
-
-                }
-                
-                    
-
-            })
-
-        }
-
-    </script>*@
-
 </section>

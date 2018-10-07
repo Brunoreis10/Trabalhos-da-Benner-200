@@ -3,12 +3,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
 <!-- Title Page -->
 <section class="titulopagina"
 
 </section>
-
 <!-- content page -->
 <section class="bgwhite p-t-66 p-b-38">
     <div class="container">
@@ -18,21 +16,17 @@
                     <img src="~/Content/images/015.jpg" alt="IMG-ABOUT">
                 </div>
             </div>
-
             <div class="col-md-8 p-b-30">
                 <h3 class="m-text26 p-t-15 p-b-16">
                     Nossa História
                 </h3>
-
                 <p class="p-b-28">
                     Criada no dia 1 de Agosto de 2018, a loja Mundo dos Jogos é uma loja especializada na venda de produtos originais. Com a venda de jogos de PS4, XBOX 360, PS3 e muitos outros fazem nossa loja ser uma da melhores na compra de jogos para consoles.
                 </p>
-
                 <div class="bo13 p-l-29 m-l-9 p-b-10">
                     <p class="p-b-11">
                         Entre no site regularmente para ficar por dentro de promoções de jogos.
                     </p>
-
                     <span class="s-text7">
                         - Bruno Henrique Reis
                     </span>
@@ -41,4 +35,46 @@
         </div>
     </div>
 </section>
+<head>
+    <title>javascript</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function relogio() {
+            var data = new Date();
+            var horas = data.getHours();
+            var minutos = data.getMinutes();
+            var segundos = data.getSeconds();
 
+            if (horas < 10) {
+                horas = "0" + horas;
+            }
+            if (minutos < 10) {
+                segundos = "0" + minutos;
+            }
+            if (segundos < 10) {
+                segundos = "0" + segundos;
+            }
+
+            document.getElementById("relogio").innerHTML = horas + ":" + minutos + ":" + segundos;
+        }
+        window.setInterval("relogio()", 1000);
+    </script>
+    <style type="text/css">
+        #relogio {
+            font: bold 28pt arial;
+            display: block;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            width: 200px;
+            border-radius: 6px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+        }
+
+       
+    </style>
+</head>
+<body onload="relogio();">
+    <div id="relogio">
+    </div>
+</body>
