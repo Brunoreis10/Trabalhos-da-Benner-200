@@ -77,29 +77,13 @@ namespace LocadoraJogos.Controllers
             Desconto desconto = dao.BuscaPorCodigo(codigo);
             if (desconto == null)
             {
-                return Json(new { sucesso = false, resposta  ="Codigo nao existe" },JsonRequestBehavior.AllowGet);
+                return Json(new { sucesso = false, resposta  ="Digite um código válido" },JsonRequestBehavior.AllowGet);
             }
             else
             {
                 return Json(new { sucesso = true, desconto =  desconto.PorcentagemDeDesconto }, JsonRequestBehavior.AllowGet);
             }
         }
-
-        //public ActionResult RecarregaItensCarrinho(string quantidade)
-        //{
-        //    ProdutosDAO dao = new ProdutosDAO();
-        //    Produto produto = dao.BuscaQuantidade(quantidade);
-        //    if (produto != null)
-        //    {
-        //        return Json(new { sucesso = false, resposta = "Nao tem o que atualizar" }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    else
-        //    {
-        //        return Json(new { sucesso = true, quantidade = produto.Quantidade }, JsonRequestBehavior.AllowGet);
-        //    }
-
-
-        //}
 
     }
 }

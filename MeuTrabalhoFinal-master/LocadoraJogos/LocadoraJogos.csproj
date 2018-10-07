@@ -181,6 +181,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chart.bundle.min.js" />
+    <Content Include="Chartjs-init.js" />
+    <Content Include="chartjs-plugin-datalabels.min.js" />
+    <Content Include="chartjs.min.js" />
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\css\bootstrap-grid.css" />
     <Content Include="Content\Css\css\bootstrap-grid.min.css" />
@@ -201,6 +205,8 @@
     <Content Include="Content\Css\Style.css" />
     <Content Include="Content\Css\Style3.css" />
     <Content Include="Content\Css\Style4.css" />
+    <Content Include="Content\Css\Style5.css" />
+    <Content Include="Content\Css\Style6.css" />
     <Content Include="Content\Css\util.css" />
     <Content Include="Content\Css\util.min.css" />
     <Content Include="Content\fonts\elegant-font\html-css\fonts\ElegantIcons.svg" />
@@ -2658,6 +2664,7 @@
     <Content Include="Content\images\Jogosfundo.jpg" />
     <Content Include="Content\images\legoharrypotter.png" />
     <Content Include="Content\images\legohobbit.png" />
+    <Content Include="Content\images\luigi33.png" />
     <Content Include="Content\images\luigifundo.png" />
     <Content Include="Content\images\mario2.png" />
     <Content Include="Content\images\mario33.png" />
@@ -2763,6 +2770,7 @@
     <Content Include="Content\vendor\slick\slick.js" />
     <Content Include="Content\vendor\slick\slick.min.js" />
     <Content Include="Content\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="dashboard.js" />
     <Content Include="Global.asax" />
     <Content Include="JQuery\jquery\form.js" />
     <Content Include="JQuery\jquery\jquery-3.3.1.min.js" />
@@ -2786,7 +2794,7 @@
     <Compile Include="Controllers\BlogDetailController.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
-    <Compile Include="Controllers\DescontosController.cs" />
+    <Compile Include="Controllers\DescricaoDosJogosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MensagemErrorController.cs" />
@@ -2839,6 +2847,10 @@
     <Compile Include="Migrations\20181003001740_Descontosdosite.cs" />
     <Compile Include="Migrations\20181003001740_Descontosdosite.designer.cs">
       <DependentUpon>20181003001740_Descontosdosite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181007160135_usuariologado.cs" />
+    <Compile Include="Migrations\20181007160135_usuariologado.designer.cs">
+      <DependentUpon>20181007160135_usuariologado.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
     <Compile Include="Models\Administrador.cs" />
@@ -3002,7 +3014,7 @@
     <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Carrinho\Carrinho.cshtml" />
     <Content Include="Views\MensagemError\Index.cshtml" />
-    <Content Include="Views\Descontos\Index.cshtml" />
+    <Content Include="Views\DescricaoDosJogos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3012,7 +3024,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Descricao\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

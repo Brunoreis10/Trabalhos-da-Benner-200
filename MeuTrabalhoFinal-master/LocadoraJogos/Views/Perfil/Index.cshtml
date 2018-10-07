@@ -3,51 +3,78 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+<link href="~/Content/Css/Style5.css" rel="stylesheet" />
 
 <!DOCTYPE html>
-<html>
-<head>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+    <html>
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
+            th, td {
+                text-align: left;
+                padding: 25px;
+            }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2
-        }
+            tr:nth-child(even) {
+                background-color: #f2f2f2
+            }
 
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-</head>
-<body>
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
 
-    <h2>Dados Pessoais</h2>
+        <h2>Dados Pessoais</h2>
 
-    <table>
-        <tr>
-            <th>Nome:</th>
-            <th>Senha:</th>
-            <th>E-mail:</th>
-            <th>Data de Nascimento:</th>
-        </tr>
-        <tr>
-            <td>@ViewBag.Usuario.Nome</td>
-            <td>@ViewBag.Usuario.Senha</td>
-            <td>@ViewBag.Usuario.Email</td>
-            <td>@ViewBag.Usuario.DataDeNascimento</td>
-        </tr>
-        <tr>
-            
-    </table>
+        <table>
+            <tr>
+                <th>Nome:</th>
+                <th>Senha:</th>
+                <th>E-mail:</th>
+                <th>Data de Nascimento:</th>
+            </tr>
+            <tr>
+                <td>@ViewBag.Usuario.Nome</td>
+                <td>@ViewBag.Usuario.Senha</td>
+                <td>@ViewBag.Usuario.Email</td>
+                <td>@ViewBag.Usuario.DataDeNascimento</td>
+            </tr>
+            <tr>
 
-</body>
-</html>
+        </table>
+
+    </body>
+    </html>
+@*<div class="container">
+    <h1 class="page-header">Dados Pessoais</h1>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Senha</th>
+                    <th>Data de Nascimento</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>@ViewBag.Usuario.Id</th>
+                    <td>@ViewBag.Usuario.Nome</td>
+                    <td>@ViewBag.Usuario.Senha</td>
+                    <td>@ViewBag.Usuario.DataDeNascimento</td>
+                    <td>@ViewBag.Usuario.Email</td>
+                </tr>              
+            </tbody>
+        </table>
+    </div>
+</div>*@

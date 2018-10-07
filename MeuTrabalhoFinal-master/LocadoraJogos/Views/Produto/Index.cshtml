@@ -1,10 +1,12 @@
-﻿
+﻿@using LocadoraJogos.DAO;
+
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+@{int? usuarioLogado = (Session["usuarioLogado"] as int?) ?? null;}
 
 <html>
-<body>  
+<body>
 
     <div>
 
@@ -15,7 +17,6 @@
                     <th>Nome</th>
                     <th>Quantidade</th>
                     <th>Preço</th>
-                    <th>Descrição</th>
                     <th>Imagem</th>
                     <th></th>
                     <th></th>
@@ -28,8 +29,7 @@
 
                         <td>@produto.Nome</td>
                         <td id="quantidade@(produto.Id)">@produto.Quantidade</td>
-                        <td>@produto.Preco</td>
-                        <td>@produto.Descricao</td>
+                        <td>R$@produto.Preco</td>
                         @{
                             string oQueGuardar = "";
                             if (produto.Imagem != null)
@@ -43,11 +43,20 @@
                             }
 
                         }
-                        <td><img class="img-fluid" width="200" src="@oQueGuardar" /> <!-- Mostra a imagem--></td>
-
-                        <td>
-                            <a href="#" onclick="exclui(@produto.Id);">Excluir</a>
-                        </td>
+                        <td><a href="/DescricaoDosJogos/Index"><img class="img-fluid" width="200" src="@oQueGuardar" /></a> <!-- Mostra a imagem--></td>
+                        @{
+                            if (usuarioLogado.HasValue)
+                            {
+                                var dao = new UsuarioDAO();
+                                var usuario = dao.BuscaPorId(usuarioLogado.Value);
+                                if (usuario.Adminstrador == true)
+                                {
+                                    <td>
+                                        <a href="#" onclick="exclui(@produto.Id);">Excluir</a>
+                                    </td>
+                                }
+                            }
+                        }
                         <td>@Html.ActionLink("Adicionar ao Carrinho", "AdicionarCarrinho", "Carrinho", new { id = produto.Id }, null)</td>
                     </tr>
 
@@ -68,7 +77,7 @@
     elemento.html(resposta.Quantidade);
   }
         </script>
-       
+
 
     </div>
 </body>

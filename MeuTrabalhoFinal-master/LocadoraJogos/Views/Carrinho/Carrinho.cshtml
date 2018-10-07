@@ -97,7 +97,7 @@
                 <!-- Button -->
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
                 <script type="text/javascript">
-                    var total = @total.Replace(',','.');
+                    var total = @total.Replace(',', '.');
                     $("#totalCarrinhoCompra").text(total);
                     jQuery(document).ready(function () {
                         $("#paypal-amount").val(total);
@@ -114,24 +114,35 @@
                         });
                     });
                 </script>
-                @{ 
+                @{
                     var usuarioLogado = Session["usuarioLogado"] as int?;
                     var listaDeItens = "";
-                    if (usuarioLogado.HasValue) {
+                    if (usuarioLogado.HasValue)
+                    {
                         var dao = new UsuarioDAO();
                         var usuario = dao.BuscaPorId(usuarioLogado.Value);
                         listaDeItens = $"{string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())}, {usuario.Nome}";
-                    } else
+                    }
+                    else
                     {
                         var adminLogado = Session["Administrador"] as Usuario;
-                        if (adminLogado != null) {
+                        if (adminLogado != null)
+                        {
                             listaDeItens = $"{string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())}, {adminLogado.Nome}";
-                        } else
+                        }
+                        else
                         {
                             listaDeItens = $"{string.Join(", ", Model.ItensPedido.Select(x => x.Produto.Nome + "(" + x.Quantidade + "x)").ToArray())}";
                         }
                     }
                 }
+                @{
+                    if (usuarioLogado.HasValue)
+                    {
+                        var dao = new UsuarioDAO();
+                        var usuario = dao.BuscaPorId(usuarioLogado.Value);
+                        if (usuario.UsuarioLogado == true)
+                        {
                 <form id="wps-bn" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <!--Tipo do botão-->
                     <input type="hidden" name="cmd" value="_xclick" />
@@ -150,8 +161,14 @@
                     <input type="hidden" name="item_name" value="@listaDeItens" />
                     <!--Botão para submissão do formulário-->
                     <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="0" />
-                </form>
+                    </form>
+                        }
+                    }
+                    else
+                    {
 
+                    }
+                    }
             </div>
         </div>
     </div>

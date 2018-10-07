@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<html>
+<body>
+
+    <div>
+
+        <table class="table table-bordered m-b-0">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Imagem</th>
+                    <th>Descrição</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in ViewBag.Produtos)
+                {
+                <tr>
+                    <td>@produto.Nome</td>
+                    @{
+                        string oQueGuardar = "";
+                        if (produto.Imagem != null)
+
+                        {
+                            var base64 = Convert.ToBase64String(produto.Imagem);
+                            var extensao = "png";
+
+
+                            oQueGuardar = $"data:image/{extensao};base64,{base64}";
+                        }
+
+                    }
+                    <td><img class="img-fluid" width="500" src="@oQueGuardar" /> <!-- Mostra a imagem--></td>
+                    <td>@produto.Descricao</td>
+                </tr>
+
+                }
+
+            </tbody>
+        </table>
+        </div>
+        </body>
+</html>
+

@@ -52,7 +52,7 @@
                                 var dao2 = new UsuarioDAO();
                                 var usuario = dao2.BuscaPorId(usuarioLogado.Value);
                                 nome = usuario.Nome;
-                                <li>Bem-vindo,@nome</li>
+                                <li>Bem-vindo, @nome</li>
                                 <a href="@Url.RouteUrl("SairConta")">Sair</a>
                             }
                             else
@@ -85,6 +85,9 @@
                             <li>
                                 <a href="../Produto/Index">Produtos</a>
                             </li>
+                            <li>
+                                <a href="../DescricaoDosJogos/Index">DescriçãoDosJogos</a>
+                            </li>
 
                             @{
                                 if (usuarioLogado.HasValue)
@@ -116,7 +119,6 @@
                             <ul class="header-cart-wrapitem">
                                 <li class="header-cart-item">
                                     @{
-                                        //var carrinho = (Pedido)Session["Carrinho"];
                                         if (carrinho != null)
                                         {
                                             foreach (var item in carrinho.ItensPedido)
