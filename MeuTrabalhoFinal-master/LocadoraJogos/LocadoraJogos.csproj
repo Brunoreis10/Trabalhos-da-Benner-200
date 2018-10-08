@@ -2642,6 +2642,8 @@
     <Content Include="Content\fonts\themify\themify-icons.css" />
     <Content Include="Content\images\015.jpg" />
     <Content Include="Content\images\12.png" />
+    <Content Include="Content\images\batman.png" />
+    <Content Include="Content\images\callofduty.png" />
     <Content Include="Content\images\Fifa18.png" />
     <Content Include="Content\images\goodofwar.png" />
     <Content Include="Content\images\Gtav.png" />
@@ -2662,6 +2664,7 @@
     <Content Include="Content\images\jogodosite2.png" />
     <Content Include="Content\images\jogodosite3.png" />
     <Content Include="Content\images\Jogosfundo.jpg" />
+    <Content Include="Content\images\justcause3.png" />
     <Content Include="Content\images\legoharrypotter.png" />
     <Content Include="Content\images\legohobbit.png" />
     <Content Include="Content\images\luigi33.png" />
@@ -2675,6 +2678,7 @@
     <Content Include="Content\images\Minecraft2.png" />
     <Content Include="Content\images\mundodosgames.png" />
     <Content Include="Content\images\paydaydois.png" />
+    <Content Include="Content\images\rainbowsix.png" />
     <Content Include="Content\images\sniperelitequatro.png" />
     <Content Include="Content\images\tombraider.png" />
     <Content Include="Content\images\unchartedquatro.png" />

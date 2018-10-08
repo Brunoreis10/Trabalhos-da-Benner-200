@@ -21,7 +21,7 @@
                 <p>Data de nascimento</p>
                 <input type="date" name="usuario.DataDeNascimento" max="2000-12-31" required>
                 <p>Email</p>
-                <input type="email" name="usuario.Email" placeholder="Insira seu email" required />
+                <input type="email" name="usuario.Email" placeholder="Insira seu email" required  pattern="/^[a-z0-9.]+[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i"/>
                 <p>Senha</p>
                 <input id="password" type="password" name="usuario.Senha" placeholder="●●●●●●●●" required pattern="[a-zA-Z0-9]+" minlength="6" maxlength="10">
                 <p>Confirmar senha</p>

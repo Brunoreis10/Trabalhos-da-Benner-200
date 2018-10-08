@@ -201,7 +201,6 @@
                 success: function (data) {
                     $(".btnDesconto").attr("disabled", true);
                     if (data.sucesso == true) {
-                        //$("#totalCarrinhoCompra").text(total * (data.desconto / 100));
                         var valorAtual = $("#totalCarrinhoCompra").text();
                         var desconto =  (valorAtual * (data.desconto / 100));
                         $("#totalCarrinhoCompra").text(desconto.toFixed(2));

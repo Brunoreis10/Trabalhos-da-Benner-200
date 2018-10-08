@@ -107,66 +107,80 @@
                 </div>
                 <!-- Header Icon -->
                 <div class="header-icons">
-                    <a href="../Perfil/Index" class="header-wrapicon1 dis-block">
-                        <img src="~/Content/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-                    </a>
-                    <span class="linedivide1"></span>
-                    <div class="header-wrapicon2">
-                        <img src="~/Content/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-                        <span class="header-icons-noti">@qtdTotal</span>
-                        <!-- Header cart noti -->
-                        <div class="header-cart header-dropdown">
-                            <ul class="header-cart-wrapitem">
-                                <li class="header-cart-item">
-                                    @{
-                                        if (carrinho != null)
-                                        {
-                                            foreach (var item in carrinho.ItensPedido)
-                                            {
-                                                <div class="excluirProdutodois">
-                                                    @{
-                                                        string oQueGuardar = "";
-                                                        if (item.Produto.Imagem != null)
+                    @{
+                        if (usuarioLogado.HasValue)
+                        {
+                            var dao = new UsuarioDAO();
+                            var usuario = dao.BuscaPorId(usuarioLogado.Value);
+                            if (usuario.UsuarioLogado == true)
+                            {
+                                <a href="../Perfil/Index" class="header-wrapicon1 dis-block">
+                                    <img src="~/Content/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                                </a>
+                            }
+                        }
+                        else
+                        {
 
+                        }
+                        }
+                                <span class="linedivide1"></span>
+                                <div class="header-wrapicon2">
+                                    <img src="~/Content/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                                    <span class="header-icons-noti">@qtdTotal</span>
+                                    <!-- Header cart noti -->
+                                    <div class="header-cart header-dropdown">
+                                        <ul class="header-cart-wrapitem">
+                                            <li class="header-cart-item">
+                                                @{
+                                                    if (carrinho != null)
+                                                    {
+                                                        foreach (var item in carrinho.ItensPedido)
                                                         {
-                                                            var base64 = Convert.ToBase64String(item.Produto.Imagem);
-                                                            var extensao = "png";
+                                                            <div class="excluirProdutodois">
+                                                                @{
+                                                                    string oQueGuardar = "";
+                                                                    if (item.Produto.Imagem != null)
+
+                                                                    {
+                                                                        var base64 = Convert.ToBase64String(item.Produto.Imagem);
+                                                                        var extensao = "png";
 
 
-                                                            oQueGuardar = $"data:image/{extensao};base64,{base64}";
+                                                                        oQueGuardar = $"data:image/{extensao};base64,{base64}";
+                                                                    }
+
+                                                                }
+                                                                <a href="@Url.Action("ExcluiProdutoCarrinho", "Carrinho", new {id=item.Produto.Id})">
+                                                                    <img class="img-fluid" width="100" src="@oQueGuardar" /> <!-- Mostra a imagem-->
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="header-cart-item-txt">
+                                                                <a href="#" class="header-cart-item-name">
+                                                                    Jogo: @item.Produto.Nome
+                                                                </a>
+                                                                <span class="header-cart-item-info">
+                                                                    R$ @item.Produto.Preco
+                                                                </span>
+                                                            </div>
                                                         }
-
                                                     }
-                                                    <a href="@Url.Action("ExcluiProdutoCarrinho", "Carrinho", new {id=item.Produto.Id})">
-                                                        <img class="img-fluid" width="100" src="@oQueGuardar" /> <!-- Mostra a imagem-->
-                                                    </a>
-                                                </div>
+                                                }
+                                            </li>
+                                        </ul>
 
-                                                <div class="header-cart-item-txt">
-                                                    <a href="#" class="header-cart-item-name">
-                                                        Jogo: @item.Produto.Nome
-                                                    </a>
-                                                    <span class="header-cart-item-info">
-                                                        R$ @item.Produto.Preco
-                                                    </span>
-                                                </div>
-                                            }
-                                        }
-                                    }
-                                </li>
-                            </ul>
-
-                            <div class="header-cart-buttons">
-                                <div class="header-cart-wrapbtn">
-                                    <!-- Button -->
-                                    <a href="../Carrinho/Carrinho" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        Ver Carrinho
-                                    </a>
+                                        <div class="header-cart-buttons">
+                                            <div class="header-cart-wrapbtn">
+                                                <!-- Button -->
+                                                <a href="../Carrinho/Carrinho" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                                    Ver Carrinho
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- Header Mobile -->

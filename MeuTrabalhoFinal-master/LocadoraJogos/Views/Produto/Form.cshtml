@@ -6,7 +6,7 @@
     }
     else
     {
-        throw new Exception("Sem permissao");
+        Response.Redirect("~/MensagemError/Index");
     }
 }
 
@@ -37,36 +37,36 @@
                 <fieldset>
                     <form>
                         <div class="form-control">
-                        <fieldset class="grupo">
-                            <div class="campo form-group">
+                            <fieldset class="grupo">
+                                <div class="campo form-group">
                                     <label for="nome">Nome:</label>
                                     <input id="nome" name="produto.Nome" required />
+                                </div>
+                                <div class="campo form-group">
+                                    <label for="nome">Preco:</label>
+                                    <input id="preco" name="produto.Preco" required maxlength="500" />
+                                </div>
+                            </fieldset>
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade:</label>
+                                <input id="quantidade" name="produto.Quantidade" required />
                             </div>
                             <div class="campo form-group">
-                                <label for="nome">Preco:</label>
-                                <input id="preco" name="produto.Preco" required maxlength="500" />
+                                <label for="descricao">Descricao:</label>
+                                <input id="descricao" name="produto.Descricao" required />
                             </div>
-                        </fieldset>
-                        <div class="form-group">
-                            <label for="quantidade">Quantidade:</label>
-                            <input id="quantidade" name="produto.Quantidade" required />
-                        </div>
-                        <div class="campo form-group">
-                            <label for="descricao">Descricao:</label>
-                            <input id="descricao" name="produto.Descricao" required />
-                        </div>
-                        <div class="campo form-group">
+                            <div class="campo form-group">
 
-                            <label for="descricao">Imagem:</label>
-                            <input type="file" name="upload" required />
-                        </div>
-                        <div class="campo form-group">
-                            <label for="categoria">Categoria:</label>
-                            <input id="categoria" name="produto.CategoriaId" />
-                        </div>
+                                <label for="descricao">Imagem:</label>
+                                <input type="file" name="upload" required />
+                            </div>
+                            <div class="campo form-group">
+                                <label for="categoria">Categoria:</label>
+                                <input id="categoria" name="produto.CategoriaId" required/>
+                            </div>
 
-                        <input type="submit" value="Cadastrar" />
-                           </div>
+                            <input type="submit" value="Cadastrar" />
+                        </div>
                     </form>
                 </fieldset>
             </div>
