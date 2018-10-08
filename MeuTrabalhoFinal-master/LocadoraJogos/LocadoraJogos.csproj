@@ -184,7 +184,7 @@
     <Content Include="chart.bundle.min.js" />
     <Content Include="Chartjs-init.js" />
     <Content Include="chartjs-plugin-datalabels.min.js" />
-    <Content Include="chartjs.min.js" />
+    <Content Include="Content\js\chartjs.min.js" />
     <Content Include="Content\Css\bootstrap.css" />
     <Content Include="Content\Css\css\bootstrap-grid.css" />
     <Content Include="Content\Css\css\bootstrap-grid.min.css" />
@@ -2799,6 +2799,7 @@
     <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\DescricaoDosJogosController.cs" />
+    <Compile Include="Controllers\GraficosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MensagemErrorController.cs" />
@@ -3019,6 +3020,7 @@
     <Content Include="Views\Carrinho\Carrinho.cshtml" />
     <Content Include="Views\MensagemError\Index.cshtml" />
     <Content Include="Views\DescricaoDosJogos\Index.cshtml" />
+    <Content Include="Views\Graficos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
